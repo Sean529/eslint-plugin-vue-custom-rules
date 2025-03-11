@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-vue-custom-rules",
-  "version": "0.1.1",
-  "description": "Vue 自定义 ESLint 规则，用于强制 Vue <script setup> 中的代码顺序",
+  "version": "0.0.1",
+  "description": "Vue 自定义 ESLint 规则",
   "main": "lib/index.js",
   "keywords": [
     "eslint",
