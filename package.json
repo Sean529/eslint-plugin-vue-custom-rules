@@ -1,7 +1,7 @@
 {
-  "name": "eslint-plugin-vue-script-setup",
-  "version": "0.1.0",
-  "description": "ESLint 插件，用于强制 Vue <script setup> 中的代码顺序",
+  "name": "eslint-plugin-vue-custom-rules",
+  "version": "0.1.1",
+  "description": "Vue 自定义 ESLint 规则，用于强制 Vue <script setup> 中的代码顺序",
   "main": "lib/index.js",
   "keywords": [
     "eslint",
@@ -12,6 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^9.22.0",
-    "espree": "^10.3.0"
+    "espree": "^10.3.0",
+    "vue-eslint-parser": "^10.1.1"
   }
 }
