@@ -1,22 +1,34 @@
 const { ESLint } = require('eslint');
 const path = require('path');
 
+// 导入我们的规则
+const scriptSetupOrderRule = require('../lib/rules/script-setup-order');
+
 async function runTest() {
   // 创建 ESLint 实例
   const eslint = new ESLint({
-    // ESLint 9.x 版本的配置方式
-    baseConfig: {
-      plugins: ['vue-script-setup'],
-      rules: {
-        'vue-script-setup/script-setup-order': 'error'
-      },
-      // 为了处理 .vue 文件，我们需要一个解析器
-      parser: require.resolve('vue-eslint-parser'),
-      parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module'
+    // ESLint 9.x 版本的扩展配置
+    overrideConfigFile: true,
+    overrideConfig: [
+      {
+        files: ['**/*.vue'],
+        languageOptions: {
+          parser: require('vue-eslint-parser'),
+          ecmaVersion: 2020,
+          sourceType: 'module'
+        },
+        plugins: {
+          'vue-custom-rules': {
+            rules: {
+              'script-setup-order': scriptSetupOrderRule
+            }
+          }
+        },
+        rules: {
+          'vue-custom-rules/script-setup-order': 'error'
+        }
       }
-    }
+    ]
   });
 
   // 测试文件路径
